@@ -1,0 +1,20 @@
+
+
+<!---This is the template for the websites.-->
+<html>
+    <head>
+        <title>MY django blog</title>
+    </head>
+
+    <body>
+        <header>
+            <h1><a href="{% url 'home' %}">Blog post</a></h1>
+            </header>
+            <div>
+                {% block content %}
+                {% endblock content %}
+            </div>
+
+
+    </body>
+</html>
