@@ -1,3 +1,10 @@
+
+
+<!--Base filetom import to frontends to not repeat code.-->
+
+
+<!--Loads the static files. Such as, the css. -->
+
 {% load static %}
 <html>
     <head>
@@ -18,7 +25,8 @@
     <body>
 
 
-        
+    <!-- Body of the base file with an option to take input from user. Token is safety for sql injections.-->    
+
     {% block content %}
         <h1>Edit post</h1>
         <form action=" " method="post" > {% csrf_token %}
