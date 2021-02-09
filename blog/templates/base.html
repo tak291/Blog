@@ -7,7 +7,7 @@
 
 {% load static %}
 <html>
-    <head>
+    <header>
             <title>Django blog</title>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:"
         rel="stylesheet">   
@@ -16,11 +16,20 @@
         <nav>
             <button type="button" class="btn btn-primary"><a href="{% url 'home' %}">Home</a></button>
             <button type="button" class="btn btn-primary"><a href="{% url 'post_new' %}">New post</a></button>
-            
-            
-
         </nav>
-    </head>
+
+        {% if user.is_authenticated %}
+            <p>Hi {{user.username}}</p>
+            <p><a href="{% url 'logout' %}">Log out</a></p>
+        {% else %}
+            <p>You are not logged in</p>
+            <button type="button" class="btn btn-primary" ><a href="{% url 'login' %}">Log in</a></button>
+
+        {% endif %}    
+
+
+
+    </header>
 
     <body>
 
