@@ -15,7 +15,8 @@
                 
         <nav>
             <button type="button" class="btn btn-primary"><a href="{% url 'home' %}">Home</a></button>
-            <button type="button" class="btn btn-primary"><a href="{% url 'post_new' %}">New post</a></button>
+            <button type="button" class="btn btn-primary"><a href="{% url 'post_new' %}">New Job</a></button>
+            <button type="button" class="btn btn-primary"><a href="/blog/templates/panel.html">Log in</a></button>
         </nav>
 
         {% if user.is_authenticated %}

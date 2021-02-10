@@ -1,7 +1,7 @@
 #Here we import the models post and view templates.
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Worker
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -18,9 +18,10 @@ class BlogDetailView(DetailView):
 
 
 class BlogCreateView(CreateView):
-    model = Post
+    model = Worker
     template_name = 'post_new.html'
     fields = '__all__'    
+    success_url = reverse_lazy('home')
 
 class BlogUpdateView(UpdateView):
     model = Post

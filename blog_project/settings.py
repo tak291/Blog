@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 #added the apps and the tmeplates path.
 
 INSTALLED_APPS = [
-   
+    'phone_field',
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
