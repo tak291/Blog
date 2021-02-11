@@ -13,8 +13,8 @@
     
 {% for post in object_list %}
         <div class='post-entry'>
-        <h2><a href="{% url 'post_detail' post.pk%}">{{ post.name}}</a></h2>
-        <p>{{ post.body }}</p>
+        <h2><a href="{% url 'post_detail' post.pk%}">Job: {{ post.job}}</a></h2>
+        <p>Details: {{ post.details }}</p>
         </div>
     {% endfor %}
 

@@ -9,14 +9,14 @@
 <html>
     <header>
             <title>Django blog</title>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:"
-        rel="stylesheet">   
+       <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:" rel="stylesheet">
         <link type="text/css" href="{% static 'blog/base.css' %}" rel="stylesheet">
                 
         <nav>
             <button type="button" class="btn btn-primary"><a href="{% url 'home' %}">Home</a></button>
             <button type="button" class="btn btn-primary"><a href="{% url 'post_new' %}">New Job</a></button>
             <button type="button" class="btn btn-primary"><a href="/blog/templates/panel.html">Log in</a></button>
+
         </nav>
 
         {% if user.is_authenticated %}
@@ -33,18 +33,13 @@
     </header>
 
     <body>
-
-
     <!-- Body of the base file with an option to take input from user. Token is safety for sql injections.-->    
-
     {% block content %}
         <h1>Edit post</h1>
         <form action=" " method="post" > {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value="Update">
-
         </form>
-
     {% endblock content %}
     
     </body>
