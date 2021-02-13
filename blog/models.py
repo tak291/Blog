@@ -14,7 +14,6 @@ class Post(models.Model):
         on_delete=models.CASCADE,
     ) 
 
-    details = models.TextField()
     customer_name = models.CharField(max_length=200, default=" ")
     Employee_phone_number = PhoneField(blank=True, help_text='Employee phone.')        
     customer_number = PhoneField(blank=True, help_text='Customer phone')    
@@ -35,13 +34,7 @@ class Post(models.Model):
 
     status = models.IntegerField(choices=STATUS_CHOICE,default=1)
 
-    def __str__(self):
-        if STATUS_CHOICE == 1:
-            return ("Open")
-        elif STATUS_CHOICE == 2:
-            return ("Pending")
-        else: 
-            return("Closed")        
+    details = models.TextField()
  
     #How to return the title of the blog to the users.
     def __str__(self):

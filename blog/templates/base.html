@@ -8,24 +8,52 @@
 {% load static %}
 <html>
     <header>
-            <title>Django blog</title>
-       <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:" rel="stylesheet">
-        <link type="text/css" href="{% static 'blog/base.css' %}" rel="stylesheet">
-                
-        <nav>
-            <button type="button" class="btn btn-primary"><a href="{% url 'home' %}">Home</a></button>
-            <button type="button" class="btn btn-primary"><a href="{% url 'post_new' %}">New Job</a></button>
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">CBD Locksmith</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+            <ul class="navbar-nav px-3">
+              <li class="nav-item text-nowrap">
+                <a class="nav-link" href="{% url 'login'%}">Sign out</a>
+              </li>
+            </ul>
+          </header>
+          
+          <div class="container-fluid">
+            <div class="row">
+              <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+                        <span data-feather="home"></span>
+                        Home
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                     
+                      <a class="nav-link" href="{% url 'post_new' %}">
+                        <span data-feather="file"></span>
+                        New Job
+                      </a>
+                    </li>
+          
 
-        </nav>
-
-        {% if user.is_authenticated %}
-            <p>Hi {{user.username}}</p>
-            <p><a href="{% url 'logout' %}">Log out</a></p>
-        {% else %}
-            <p>You are not logged in</p>
-            <button type="button" class="btn btn-primary" ><a href="{% url 'login' %}">Log in</a></button>
-
-        {% endif %}    
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span data-feather="bar-chart-2"></span>
+                        Reports
+                      </a>
+                    </li>
+                  </ul>
+          
+                </div>
+              </nav>
+ 
 
 
 
@@ -38,11 +66,4 @@
     {% endblock content %}
     
     </body>
-    <footer>
-        <div class="box">
-            <div class="left">Jose porras</div>
-            <div class="middle"> support@joseporras.co</div>
-            <div class="right"> right</div>
-        </div>
-    </footer>
 </html>

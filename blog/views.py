@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from .forms import PostForm
 
 #Here we create the template for the home view.
 class BlogListView(ListView):
@@ -18,8 +19,9 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(CreateView):
     model = Post
+    form_class = PostForm
     template_name = 'post_new.html'
-    fields = '__all__'    
+        
     success_url = reverse_lazy('home')
 
 class BlogUpdateView(UpdateView):
