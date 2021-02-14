@@ -1,6 +1,7 @@
 from django import forms
 from .models import Post
 
+#Model for the form and where to edit the form
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
