@@ -55,7 +55,7 @@ class Post(models.Model):
             # Your Account Sid and Auth Token from twilio.com/console
             # and set the environment variables. See http://twil.io/secure
             account_sid = 'AC62dc1020a3f092f7240a883688d2c13b'
-            auth_token = 'c32f36a8f641480960162b98df96a0f8'
+            auth_token = ''
             client = Client(account_sid, auth_token)
 
             message = client.messages.create(
