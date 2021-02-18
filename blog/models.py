@@ -4,6 +4,7 @@ from phone_field import PhoneField
 import os
 from twilio.rest import Client
 from phonenumber_field.modelfields import PhoneNumberField
+import datetime
 # Create your models here.
 
 #Job model.
@@ -21,11 +22,35 @@ class Post(models.Model):
     customer_number = PhoneNumberField()    
     addres = models.CharField(max_length=200, default="")
     city = models.CharField(max_length=200, default="")
+    appointment_date = models.DateField(blank=True, null=True, default='mm/dd/yyyy')
+    price = models.CharField(max_length=200, default="$")
+    #tax = models.CharField(max_length=200, default='GSD')
+
+    YES = 7
+    NO =  8 
 
 
-    #Status of the job.
+    PAYMENT_TYPE = (
+        (YES, ' Yes'),
+        (NO, 'No'),
+        )
+
+    GSD = models.IntegerField(choices=PAYMENT_TYPE, default=7)
+
+    CASH = 4
+    CARD =  5 
+    TRANSFER = 6
+
+    PAYMENT_TYPE = (
+        (CASH, ' Cash'),
+        (CARD, 'Card'),
+        ( TRANSFER, 'Transfer' ),
+        )
+
+    payment = models.IntegerField(choices=PAYMENT_TYPE, default=4)
+
     OPEN = 1
-    PENDING_APPOINTMENT =  2 
+    PENDING_APPOINTMENT = 2
     CLOSED = 3
 
     STATUS_CHOICE = (
@@ -66,8 +91,6 @@ class Post(models.Model):
 
             print(message.sid)
         
-
-
         return super().save(*args, **kwargs)
 
        

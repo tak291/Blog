@@ -29,8 +29,9 @@ class BlogCreateView(CreateView):
 #This is the view to edit the post.
 class BlogUpdateView(UpdateView):
     model = Post
+    form_class = PostForm
     template_name = 'post_edit.html'
-    fields = '__all__'     
+    #fields = '__all__'     
 
 #This is the view to delete the post.
 class BlogDeleteView(DeleteView):

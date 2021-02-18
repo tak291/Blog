@@ -114,7 +114,7 @@
       <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            Jobs
+            
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -126,6 +126,7 @@
                             <th>Customer</th>
                             <th>Status</th>
                             <th>Details</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -135,6 +136,7 @@
                             <th>Customer</th>
                             <th>Status</th>
                             <th>Details</th>
+                            <th>Date</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -151,6 +153,7 @@
                 <td>Closed</td>    
             {% endif %}
               <td>{{post.details}}</td>
+              <td>{{post.appointment_date}}</td>
             </tr>
     {% endfor %}
 
